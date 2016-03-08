@@ -31,16 +31,16 @@ class DashboardController extends Controller {
       exit();
     }
     if(!session('recaptcha_passed') && empty($_POST['g-recaptcha-response'])){
-      $errmsg = '请进行人机身份验证';
+      $errmsg = L('RECAPTCHA_EMPTY_MESSAGE');
     }
     elseif(empty($_POST['netid'])){
-      $errmsg = '请输入您的雪城大学NETID';
+      $errmsg = L('NETID_EMPTY_MESSAGE');
     }
     elseif(!$this->verify_recaptcha()){
-      $errmsg = '请重新进行人机身份验证';
+      $errmsg = L('RECAPTCHA_ERROR_MESSAGE');
     }
     elseif(!preg_match("/^[a-z][a-z0-9]{1,27}$/",$_POST['netid'])){
-      $errmsg = '您输入的雪城大学NETID格式错误';
+      $errmsg = L('NETID_FORMAT_ERROR_MESSAGE');
       unset($_POST['netid']);
     }
     if(!empty($errmsg)){

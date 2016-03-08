@@ -1,72 +1,40 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-    <title>雪城好声音赛务平台</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="https://sucssa.pumpkin.name/favicon.ico" type="image/x-icon">
-    <style>body{padding-top: 50px; padding-bottom:20px;font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif !important;}</style>
-    <notpresent name="Think.session.recaptcha_passed"><script src="https://www.google.com/recaptcha/api.js?hl=zh-CN"></script></notpresent>
-  </head>
-
-  <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand">SUCSSA</a>
-        </div>
-      </div>
-    </nav>
-
-    <div class="jumbotron">
-      <div class="container">
-        <h1>2016年雪城好声音</h1>
-        <p>登录赛事选手平台</p>
-      </div>
-    </div>
-
-    <div class="container">
-      <div style="max-width:500px;margin-left:auto;margin-right:auto;">
-        <form method="POST" class="form-horizontal" style="margin:auto;margin-top:30px;" role="form">
-          <notempty name="errmsg">
-            <div class="row">
-              <div class="col-sm-8 col-sm-offset-2">
-                <div class="alert alert-danger" role="alert"><strong>{$errmsg}</strong></div>
-              </div>
-              <div class="col-sm-2"></div>
-            </div>
-          </notempty>
-
-          <div id="netidinputdiv" class="form-group">
-            <label for="netidfield" class="col-sm-2 control-label">SU Mail</label>
-            <div class="col-sm-8">
-              <div class="input-group">
-                <input id="netidfield" name="netid" type="text" class="form-control" maxlength="32" required="required" placeholder="NETID" value="{$Think.post.netid}">
-                <span class="input-group-addon">@syr.edu</span>
-              </div>
+<extend name="./Application/Common/View/layout.html" />
+<block name="subtitle">{$Think.lang.CONTESTANT_LOGIN_TITLE}</block>
+<block name="body">
+  <notpresent name="Think.session.recaptcha_passed"><script src="https://www.google.com/recaptcha/api.js?hl={$Think.lang.RECAPTCHA_LANG_CODE}"></script></notpresent>
+  <div class="container">
+    <div style="max-width:500px;margin-left:auto;margin-right:auto;">
+      <form method="POST" class="form-horizontal" style="margin:auto;margin-top:30px;" role="form">
+        <notempty name="errmsg">
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+              <div class="alert alert-danger" role="alert"><strong>{$errmsg}</strong></div>
             </div>
             <div class="col-sm-2"></div>
-            <div class="col-sm-8 col-sm-offset-2">
-              <span class="help-block">请输入您的NETID以登录系统</span>
+          </div>
+        </notempty>
+
+        <div id="netidinputdiv" class="form-group">
+          <label for="netidfield" class="col-sm-2 control-label">SU Mail</label>
+          <div class="col-sm-8">
+            <div class="input-group">
+              <input id="netidfield" name="netid" type="text" class="form-control" maxlength="32" required="required" placeholder="NETID" value="{$Think.post.netid}">
+              <span class="input-group-addon">@syr.edu</span>
             </div>
           </div>
-          <notpresent name="Think.session.recaptcha_passed"><center><div class="g-recaptcha" data-size="100%" data-sitekey="6Lfa2xYTAAAAAP9pKODwPMQxBYhe9p4jV4uhpibM" style="margin-bottom:15px;"></div></center></notpresent>
-          <div class="col-sm-8 col-sm-offset-2" style="padding:0px 0px"></div>
-            <p>
-              <button id="check" type="submit" id="submitbutton" class="btn btn-lg btn-primary btn-block">
-                登录 / 注册
-              </button>
-            </p>
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8 col-sm-offset-2">
+            <span class="help-block">{$Think.lang.CONTESTANT_LOGIN_HELP}</span>
           </div>
-        </form>
-      </div>
+        </div>
+        <notpresent name="Think.session.recaptcha_passed"><center><div class="g-recaptcha" data-size="normol" data-sitekey="6Lfa2xYTAAAAAP9pKODwPMQxBYhe9p4jV4uhpibM" style="margin-bottom:15px;"></div></center></notpresent>
+        <div class="col-sm-8 col-sm-offset-2" style="padding:0px 0px">
+          <button id="check" type="submit" id="submitbutton" class="btn btn-lg btn-primary btn-block">
+            {$Think.lang.CONTESTANT_LOGIN_CHECK_BUTTON}
+          </button>
+        </div>
+        <div class="col-sm-2"></div>
+      </form>
     </div>
-    <hr>
-    <footer style="text-align:center;">
-      <p>&copy;2016 雪城大学华人学生学者联合会</p>
-    </footer>
-  </body>
-</html>
+  </div>
+</block>
