@@ -22,25 +22,25 @@ CREATE TABLE `contestants` (
   KEY `firstname_2` (`firstname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Information of contestants of Syracuse Voice';
 
-DROP TABLE IF EXISTS `graders`;
-CREATE TABLE `graders` (
-  `grader_id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
-  `grader_name` varchar(20) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`grader_id`)
+DROP TABLE IF EXISTS `judges`;
+CREATE TABLE `judges` (
+  `judge_id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `judge_name` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`judge_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 DROP TABLE IF EXISTS `grades`;
 CREATE TABLE `grades` (
   `grade_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `contestant_netid` char(28) COLLATE utf8_bin DEFAULT NULL,
-  `grader` tinyint(3) unsigned DEFAULT NULL,
+  `judge` tinyint(3) unsigned DEFAULT NULL,
   `score` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`grade_id`),
-  KEY `contestant_netid` (`contestant_netid`,`grader`),
-  KEY `grader` (`grader`)
+  KEY `contestant_netid` (`contestant_netid`,`judge`),
+  KEY `judge` (`judge`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
 ALTER TABLE `grades`
   ADD CONSTRAINT `contestant_consistency` FOREIGN KEY (`contestant_netid`) REFERENCES `contestants` (`netid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `grader_consistency` FOREIGN KEY (`grader`) REFERENCES `graders` (`grader_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `judge_consistency` FOREIGN KEY (`judge`) REFERENCES `judges` (`judge_id`) ON DELETE CASCADE ON UPDATE CASCADE;
