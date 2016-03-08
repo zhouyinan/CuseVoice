@@ -95,7 +95,7 @@ class GradingController extends Controller {
 
   public function logout(){
     session('admin',null);
-    $this->redirect('login',null,0, 'Redirecting ...');
+    $this->redirect('Admin/Dashboard/login',null,0, 'Redirecting ...');
   }
 
   public function _before_setCurrentContestant(){
