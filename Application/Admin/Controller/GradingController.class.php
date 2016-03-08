@@ -47,7 +47,7 @@ class GradingController extends Controller {
     $this->display();
   }
 
-  public function graders(){
+  public function judges_list(){
     $GradersModel = D('Graders');
     $this->assign('graders_list',$GradersModel->order('grader_id asc')->select());
     $this->display();
