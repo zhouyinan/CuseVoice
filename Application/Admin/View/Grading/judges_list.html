@@ -46,9 +46,9 @@
         <tbody>
           <volist name="judges_list" id="judge">
           <tr>
-            <th>{$judge.judge_id}</th>
+            <th>{$i}</th>
             <td>{$judge.judge_name}</td>
-            <td><a href="{:U('judge_delete?judge_id=' . $judge.judge_id)}">删除评委</a></td>
+            <td><a href="{:U('judge_delete?judge_id=' . $judge['judge_id'])}">删除评委</a></td>
           </tr>
           </volist>
         </tbody>

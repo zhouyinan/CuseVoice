@@ -52,7 +52,7 @@ class GradingController extends Controller {
   }
   public function judges_list(){
     $JudgesModel = D('Judges');
-    $this->assign('judges_list',$JudgesModel->order('judges_id asc')->select());
+    $this->assign('judges_list',$JudgesModel->order('judge_id asc')->select());
     $this->display();
   }
 
@@ -61,10 +61,10 @@ class GradingController extends Controller {
   }
   public function judge_add(){
     $JudgesModel = D('Judges');
-    if(empty($_GET['judges_id'])){
-      E('评委ID参数错误');
+    if(empty($_POST['judge_name'])){
+      E('评委姓名参数错误');
     }
-    $data['judges_id'] = I('get.judges_id');
+    $data['judge_name'] = I('post.judge_name');
     $JudgesModel->add($data);
     $this->redirect('judges_list',null,0, 'Redirecting ...');
   }
@@ -74,10 +74,10 @@ class GradingController extends Controller {
   }
   public function judge_delete(){
     $JudgesModel = D('Judges');
-    if(empty($_GET['judges_id'])){
+    if(empty($_GET['judge_id'])){
       E('评委ID参数错误');
     }
-    $query['judges_id'] = I('get.judges_id');
+    $query['judge_id'] = I('get.judge_id');
     $JudgesModel->where($query)->limit('1')->delete();
     $this->redirect('judges_list',null,0, 'Redirecting ...');
   }
