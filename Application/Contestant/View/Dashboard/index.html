@@ -1,80 +1,49 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-    <title>雪城好声音赛务平台</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="https://sucssa.pumpkin.name/favicon.ico" type="image/x-icon">
-    <style>body{padding-top: 50px; padding-bottom:20px;font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif !important;}</style>
-  </head>
-
-  <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand">SUCSSA</a>
-        </div>
-      </div>
-    </nav>
-
-    <div class="jumbotron">
-      <div class="container">
-        <h1>2016年雪城好声音</h1>
-        <p>查看报名状态</p>
-      </div>
+<extend name="./Application/Common/View/layout.html" />
+<block name="subtitle">{$Think.lang.VIEW_REGISTRATION_TITLE}</block>
+<block name="bodu">
+  <div class="container">
+    <div style="max-width:350px;margin-left:auto;margin-right:auto;">
+      <table class="table" style="text-align:center;">
+      <tbody>
+        <tr>
+          <th scope="row">Name</th>
+          <td>{$contestant.firstname}&nbsp;{$contestant.lastname}</td>
+        </tr>
+        <tr>
+          <th scope="row">姓名</th>
+          <td>{$contestant.name}</td>
+        </tr>
+        <tr>
+          <th scope="row">电子邮箱</th>
+          <td>{$contestant.netid}@syr.edu</td>
+        </tr>
+        <tr>
+          <th scope="row">手机号</th>
+          <td>{$contestant.mobile}</td>
+        </tr>
+        <tr>
+          <th scope="row">演唱曲目</th>
+          <td>{$contestant.song}</td>
+        </tr>
+        <tr>
+          <th scope="row">备注</th>
+          <td>{$contestant.note}</td>
+        </tr>
+        <tr>
+          <th scope="row">报名时间</th>
+          <td>{$contestant.register_time}</td>
+        </tr>
+        <tr>
+          <th scope="row">状态</th>
+          <td><eq name="contestant['confirmed']" value="0">成功提交报名表<br />等待SUCSSA确认<else/>SUCSSA 已确认</eq></td>
+        </tr>
+        <tr>
+          <th scope="row">提交伴奏状态</th>
+          <td><eq name="contestant['accompany_uploaded']" value="0">SUCSSA文娱部尚未确认<br />请尽快发送您的歌曲伴奏至<br />suwenyubu@gmail.com<else/>SUCSSA 文娱部已确认</eq></td>
+        </tr>
+      </tbody>
+    </table>
     </div>
-
-    <div class="container">
-      <div style="max-width:350px;margin-left:auto;margin-right:auto;">
-        <table class="table" style="text-align:center;">
-        <tbody>
-          <tr>
-            <th scope="row">Name</th>
-            <td>{$contestant.firstname}&nbsp;{$contestant.lastname}</td>
-          </tr>
-          <tr>
-            <th scope="row">姓名</th>
-            <td>{$contestant.name}</td>
-          </tr>
-          <tr>
-            <th scope="row">电子邮箱</th>
-            <td>{$contestant.netid}@syr.edu</td>
-          </tr>
-          <tr>
-            <th scope="row">手机号</th>
-            <td>{$contestant.mobile}</td>
-          </tr>
-          <tr>
-            <th scope="row">演唱曲目</th>
-            <td>{$contestant.song}</td>
-          </tr>
-          <tr>
-            <th scope="row">备注</th>
-            <td>{$contestant.note}</td>
-          </tr>
-          <tr>
-            <th scope="row">报名时间</th>
-            <td>{$contestant.register_time}</td>
-          </tr>
-          <tr>
-            <th scope="row">状态</th>
-            <td><eq name="contestant['confirmed']" value="0">成功提交报名表<br />等待SUCSSA确认<else/>SUCSSA 已确认</eq></td>
-          </tr>
-          <tr>
-            <th scope="row">提交伴奏状态</th>
-            <td><eq name="contestant['accompany_uploaded']" value="0">SUCSSA文娱部尚未确认<br />请尽快发送您的歌曲伴奏至<br />suwenyubu@gmail.com<else/>SUCSSA 文娱部已确认</eq></td>
-          </tr>
-        </tbody>
-      </table>
-      </div>
-      <center><a href="{:U('logout')}" role="button" class="btn btn-default"><span class="glyphicon glyphicon-log-out"></span>&nbsp;登出</a></center>
-    </div>
-    <hr>
-    <footer style="text-align:center;">
-      <p>&copy;2016 雪城大学华人学生学者联合会</p>
-    </footer>
-  </body>
-</html>
+    <center><a href="{:U('logout')}" role="button" class="btn btn-default"><span class="glyphicon glyphicon-log-out"></span>&nbsp;登出</a></center>
+  </div>
+</block>
