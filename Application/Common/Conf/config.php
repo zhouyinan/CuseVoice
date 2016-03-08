@@ -28,4 +28,8 @@ return array(
 	//下方填写Google Recaptcha配置
 	'RECAPTCHA_SERVER_SECRET' => '',
 	'RECAPTCHA_CLIENT_KEY' => '',
+
+	//其他配置
+	'SITE_TITLE' => '',
+	'FAVICON_URL' => '',
 );
