@@ -41,16 +41,24 @@
         <thead>
           <th>#</th>
           <th>评委姓名</th>
+          <th></th>
         </thead>
         <tbody>
-          <volist name="graders_list" id="grader">
+          <volist name="judges_list" id="judge">
           <tr>
-            <th>{$i}</th>
-            <td>{$grader.grader_name}</td>
+            <th>{$judge.judge_id}</th>
+            <td>{$judge.judge_name}</td>
+            <td><a href="{:U('judge_delete?judge_id=' . $judge.judge_id)}">删除评委</a></td>
           </tr>
           </volist>
         </tbody>
       </table>
+      <form action="{:U('judge_add')}" method="POST" class="form-inline">
+        <div class="form-group">
+          <input type="text" class="form-control" name="judge_name" placeholder="评委姓名">
+        </div>
+        <button type="submit" class="btn btn-default">添加评委</button>
+      </form>
     </div>
     <hr>
     <footer style="text-align:center;">
