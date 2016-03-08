@@ -8,7 +8,10 @@ return array(
 	'DB_DEBUG'  =>  FALSE,
 	'TMPL_EXCEPTION_FILE'     =>  APP_PATH . 'Common/View/exception.html',
 	'ERROR_MESSAGE'         =>  '页面不存在或系统错误',
-
+	'LANG_SWITCH_ON' => true,
+	'LANG_AUTO_DETECT' => true,
+	'LANG_LIST'        => 'zh-cn',
+	'VAR_LANGUAGE'     => 'lang',
 
 	//设置密码
 	'ADMIN_PASSWORD' => '123456', //管理密码
@@ -30,6 +33,5 @@ return array(
 	'RECAPTCHA_CLIENT_KEY' => '',
 
 	//其他配置
-	'SITE_TITLE' => '',
 	'FAVICON_URL' => '',
 );
