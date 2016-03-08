@@ -10,4 +10,5 @@ return array(
   'RECAPTCHA_ERROR_MESSAGE' => '请重新进行人机身份验证',
   'NETID_EMPTY_MESSAGE' => '请输入您的雪城大学NETID',
   'NETID_FORMAT_ERROR_MESSAGE' => '您输入的雪城大学NETID格式错误',
+  'LOGIN_BUTTON' => '登录',
 );
