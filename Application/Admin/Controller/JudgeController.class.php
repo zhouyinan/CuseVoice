@@ -72,7 +72,7 @@ class JudgeController extends Controller {
 
   public function logout(){
     session('judge',null);
-    $this->redirect('judge_login',null,0, 'Redirecting ...');
+    $this->redirect('login',null,0, 'Redirecting ...');
   }
 
   private function get_contestant(){
@@ -88,9 +88,9 @@ class JudgeController extends Controller {
   private function getJudgeName($judge_id = ''){
     $judge_id = $judge_id?:session('judge');
     if(F('JUDGE-NAME-' . $judge_id)===false){
-      $GradersModel = D('Graders');
+      $JudgesModel = D('Judges');
       $query['judge_id'] = $judge_id;
-      F('JUDGE-NAME-' . $judge_id,$GradersModel->where($query)->getField('judge_name'));
+      F('JUDGE-NAME-' . $judge_id,$JudgesModel->where($query)->getField('judge_name'));
     }
     return F('JUDGE-NAME-' . $judge_id);
   }
