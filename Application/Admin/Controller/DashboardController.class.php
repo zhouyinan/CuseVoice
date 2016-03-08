@@ -18,16 +18,16 @@ class DashboardController extends Controller {
       exit();
     }
     if(empty($_POST['g-recaptcha-response'])){
-      $errmsg = '请进行人机身份验证';
+      $errmsg = L('RECAPTCHA_EMPTY_MESSAGE');
     }
     elseif(empty($_POST['pwd'])){
-      $errmsg = '请输入管理密码';
+      $errmsg = L('ADMIN_PASSWORD_EMPTY_MESSAGE');
     }
     elseif(!verify_recaptcha()){
-      $errmsg = '请重新进行人机身份验证';
+      $errmsg = L('RECAPTCHA_ERROR_MESSAGE');
     }
     elseif($_POST['pwd'] != C('ADMIN_PASSWORD')){
-      $errmsg = '管理密码错误';
+      $errmsg = L('ADMIN_PASSWORD_ERROR_MESSAGE');
     }
     if(!empty($errmsg)){
       $this->assign('errmsg',$errmsg);
