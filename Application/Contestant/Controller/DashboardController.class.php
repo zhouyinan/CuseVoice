@@ -78,14 +78,14 @@ class DashboardController extends Controller {
     $_POST['lastname'] = ucfirst($_POST['lastname']);
     $_POST['firstname'] = ucfirst($_POST['firstname']);
     if(!$this->verify_recaptcha()){
-      $this->assign('errmsg','请重新进行人机身份验证');
+      $this->assign('errmsg',L('RECAPTCHA_ERROR_MESSAGE'));
       $this->display();
       exit();
     }
     $ContestantsModel = D('Contestants');
     $query['netid'] = I('post.netid','1invalid');
     if($ContestantsModel->where($query)->limit('1')->count() == 1){
-      $this->assign('errmsg','该用户已报名参赛，请<a href="' . U('login') .'">点击此处以登录</a>');
+      $this->assign('errmsg',L('CONTESTANT_ALREADY_REGISTERED'));
       $this->display();
       exit();
     }

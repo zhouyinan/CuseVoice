@@ -13,4 +13,5 @@ return array(
   'SONG_EXAMPLE' => '我的太阳 - 帕瓦蒂洛',
   'NOTE_PLACEHOLDER' => '如果有话想对SUCSSA说请写在这里（可选）',
   'REGISTER_BUTTON' => '报名参赛',
+  'CONTESTANT_ALREADY_REGISTERED' => '该用户已报名参赛，请<a href="' . U('login') .'">点击此处以登录</a>',
 );
