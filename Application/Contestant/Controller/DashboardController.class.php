@@ -19,7 +19,7 @@ class DashboardController extends Controller {
   }
 
   public function _before_login(){
-    if($this->is_login()){
+    if(is_login()){
       $this->redirect('index',null,0, 'Redirecting ...');
       exit();
     }
