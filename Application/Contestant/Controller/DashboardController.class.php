@@ -94,7 +94,7 @@ class DashboardController extends Controller {
       $this->display();
       exit();
     }
-    $ContestantsModel->add();
+    $ContestantsModel->field(array('netid','name','firstname','lastname','mobile','song','note'))->add();
     session('recaptcha_passed',null);
     session('contestant',$_POST['netid']);
     $this->redirect('index',null,0, 'Redirecting ...');
