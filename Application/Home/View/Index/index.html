@@ -1,56 +1,25 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-    <title>雪城好声音赛务平台</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="https://sucssa.pumpkin.name/favicon.ico" type="image/x-icon">
-    <style>body{padding-top: 50px; padding-bottom:20px;font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif !important;}</style>
-  </head>
-
-  <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand">SUCSSA</a>
-        </div>
+<extend name="./Application/Common/View/layout.html" />
+<block name="subtitle">
+{$Think.lang.CONTEST_SERVICE_PLATFORM}
+</block>
+<block name="body">
+  <div class="container">
+    <div class="row" style="text-align:center;">
+      <div class="col-md-4">
+        <h2>{$Think.lang.CONTESTANT_ENTRANCE}</h2>
+        <p>{$Think.lang.CONTESTANT_ENTRANCE_DESCRIPTION}</p>
+        <p><a class="btn btn-default" href="{:U('Contestant/Dashboard/index')}" role="button">{$Think.lang.ENTER} &raquo;</a></p>
       </div>
-    </nav>
-
-    <div class="jumbotron">
-      <div class="container">
-        <h1>2016年雪城好声音</h1>
-        <p>赛务管理平台</p>
+      <div class="col-md-4">
+        <h2>{$Think.lang.ADMIN_ENTRANCE}</h2>
+        <p>{$Think.lang.ADMIN_ENTRANCE_DESCRIPTION}</p>
+        <p><a class="btn btn-default" href="{:U('Admin/Dashboard/index')}" role="button">{$Think.lang.ENTER} &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>{$Think.lang.JUDGE_ENTRANCE}</h2>
+        <p>{$Think.lang.JUDGE_ENTRANCE_DESCRIPTION}</p>
+        <p><a class="btn btn-default" href="{:U('Admin/Grading/grader_index')}" role="button">{$Think.lang.ENTER} &raquo;</a></p>
       </div>
     </div>
-
-    <div class="container">
-      <div class="row" style="text-align:center;">
-        <div class="col-md-4">
-          <h2>选手入口</h2>
-          <p>报名参与竞赛</p>
-          <p><a class="btn btn-default" href="{:U('Contestant/Dashboard/index')}" role="button">进入系统 &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>管理入口</h2>
-          <p>进行选手管理</p>
-          <p><a class="btn btn-default" href="{:U('Admin/Dashboard/index')}" role="button">进入系统 &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>评委入口</h2>
-          <p>对选手进行打分</p>
-          <p><a class="btn btn-default" href="{:U('Admin/Grading/grader_index')}" role="button">进入系统 &raquo;</a></p>
-        </div>
-      </div>
-
-      <hr>
-
-      <footer style="text-align:center;">
-        <p>&copy;2016 雪城大学华人学生学者联合会</p>
-      </footer>
-    </div>
-  </body>
-</html>
+  </div>
+</block>
