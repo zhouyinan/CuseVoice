@@ -5,4 +5,9 @@ return array(
   'ADMIN_LOGIN_TITLE' => '登录赛事管理平台',
   'ADMIN_PASSWORD' => '管理密码',
   'ADMIN_LOGIN_HELP' => '请联系文娱部获取管理密码',
+  'ADMIN_DASHBOARD_TITLE' => '赛事管理',
+  'MARK_CONFIRMED' => '标记确认',
+  'MARK_ACCOMPANY_RECEIVED' => '标记收到',
+  'ACCOMPANY_RECEIVED' => '已收到',
+  'SET_CURRENT_CONTESTANT' => '设为当前'
 );
