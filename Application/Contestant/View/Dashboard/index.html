@@ -1,6 +1,6 @@
 <extend name="./Application/Common/View/layout.html" />
 <block name="subtitle">{$Think.lang.VIEW_REGISTRATION_TITLE}</block>
-<block name="bodu">
+<block name="body">
   <div class="container">
     <div style="max-width:350px;margin-left:auto;margin-right:auto;">
       <table class="table" style="text-align:center;">
@@ -10,40 +10,40 @@
           <td>{$contestant.firstname}&nbsp;{$contestant.lastname}</td>
         </tr>
         <tr>
-          <th scope="row">姓名</th>
+          <th scope="row">{$Think.lang.NAME}</th>
           <td>{$contestant.name}</td>
         </tr>
         <tr>
-          <th scope="row">电子邮箱</th>
+          <th scope="row">{$Think.lang.EMAIL}</th>
           <td>{$contestant.netid}@syr.edu</td>
         </tr>
         <tr>
-          <th scope="row">手机号</th>
+          <th scope="row">{$Think.lang.MOBILE}</th>
           <td>{$contestant.mobile}</td>
         </tr>
         <tr>
-          <th scope="row">演唱曲目</th>
+          <th scope="row">{$Think.lang.SONG}</th>
           <td>{$contestant.song}</td>
         </tr>
         <tr>
-          <th scope="row">备注</th>
+          <th scope="row">{$Think.lang.NOTE}</th>
           <td>{$contestant.note}</td>
         </tr>
         <tr>
-          <th scope="row">报名时间</th>
+          <th scope="row">{$Think.lang.REGISTER_TIME}</th>
           <td>{$contestant.register_time}</td>
         </tr>
         <tr>
-          <th scope="row">状态</th>
-          <td><eq name="contestant['confirmed']" value="0">成功提交报名表<br />等待SUCSSA确认<else/>SUCSSA 已确认</eq></td>
+          <th scope="row">{$Think.lang.STATUS}</th>
+          <td><eq name="contestant['confirmed']" value="0">{$Think.lang.STATUS_UNCONFIRMED}<else/>{$Think.lang.STATUS_CONFIRMED}</eq></td>
         </tr>
         <tr>
-          <th scope="row">提交伴奏状态</th>
-          <td><eq name="contestant['accompany_uploaded']" value="0">SUCSSA文娱部尚未确认<br />请尽快发送您的歌曲伴奏至<br />suwenyubu@gmail.com<else/>SUCSSA 文娱部已确认</eq></td>
+          <th scope="row">{$Think.lang.ACCOMPANY_SUBMISSION_STATUS}</th>
+          <td><eq name="contestant['accompany_uploaded']" value="0">{$Think.lang.ACCOMPANY_SUBMISSION_STATUS_UNCONFIRMED}<else/>{$Think.lang.ACCOMPANY_SUBMISSION_STATUS_CONFIRMED}</eq></td>
         </tr>
       </tbody>
     </table>
     </div>
-    <center><a href="{:U('logout')}" role="button" class="btn btn-default"><span class="glyphicon glyphicon-log-out"></span>&nbsp;登出</a></center>
+    <center><a href="{:U('logout')}" role="button" class="btn btn-default"><span class="glyphicon glyphicon-log-out"></span>&nbsp;{$Think.lang.LOGOUT}</a></center>
   </div>
 </block>

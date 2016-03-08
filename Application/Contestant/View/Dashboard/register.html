@@ -1,102 +1,70 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-    <title>雪城好声音赛务平台</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="https://sucssa.pumpkin.name/favicon.ico" type="image/x-icon">
-    <style>body{padding-top: 50px; padding-bottom:20px;font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif !important;}</style>
-    <notpresent name="Think.session.recaptcha_passed"><script src="https://www.google.com/recaptcha/api.js?hl=zh-CN"></script></notpresent>
-  </head>
+<extend name="./Application/Common/View/layout.html" />
+<block name="subtitle">{$Think.lang.REGISTRATION_TITLE}</block>
+<block name="body">
+  <div class="container">
+    <div style="max-width:500px;margin-left:auto;margin-right:auto;">
+      <form action="{:U('register')}" method="POST" class="form-horizontal" style="margin:auto;margin-top:30px;" role="form">
+        <notempty name="errmsg">
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+              <div class="alert alert-danger" role="alert"><strong>{$errmsg}</strong></div>
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+        </notempty>
 
-  <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand">SUCSSA</a>
+        <div id="netidinputdiv" class="form-group">
+          <label for="netidfield" class="col-sm-2 control-label">SU Mail</label>
+          <div class="col-sm-8">
+            <div class="input-group">
+              <input id="netidfield" name="netid" type="text" class="form-control" maxlength="32" required="required" placeholder="NETID" value="{$Think.request.netid}">
+              <span class="input-group-addon">@syr.edu</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
-
-    <div class="jumbotron">
-      <div class="container">
-        <h1>2016年雪城好声音</h1>
-        <p>报名参赛</p>
-      </div>
+        <div id="nameinputdiv" class="form-group">
+          <label for="namefield" class="col-sm-2 control-label">{$Think.lang.NAME}</label>
+          <div class="col-sm-8">
+            <input id="namefield" name="name" type="text" class="form-control" maxlength="32" required="required" value="{$Think.post.name}">
+          </div>
+        </div>
+        <div id="firstnameinputdiv" class="form-group">
+          <label for="firstnamefield" class="col-sm-2 control-label">First N.</label>
+          <div class="col-sm-8">
+            <input id="firstnamefield" name="firstname" type="text" class="form-control" maxlength="32" required="required" placeholder="First Name" value="{$Think.post.firstname}">
+          </div>
+        </div>
+        <div id="lastnameinputdiv" class="form-group">
+          <label for="lastnamefield" class="col-sm-2 control-label">Last N.</label>
+          <div class="col-sm-8">
+            <input id="lastnamefield" name="lastname" type="text" class="form-control" maxlength="32" required="required" placeholder="Last Name" value="{$Think.post.lastname}">
+          </div>
+        </div>
+        <div id="mobileinputdiv" class="form-group">
+          <label for="mobilefield" class="col-sm-2 control-label">{$Think.lang.MOBILE}</label>
+          <div class="col-sm-8">
+            <input id="mobilefield" name="mobile" type="text" class="form-control" maxlength="20" required="required" value="{$Think.post.mobile}">
+          </div>
+        </div>
+        <div id="songinputdiv" class="form-group">
+          <label for="songfield" class="col-sm-2 control-label">{$Think.lang.SONG}</label>
+          <div class="col-sm-8">
+            <input id="songfield" name="song" type="text" class="form-control" maxlength="50" placeholder="{$Think.lang.SONG_EXAMPLE}" required="required" value="{$Think.post.song}">
+          </div>
+        </div>
+        <div id="noteinputdiv" class="form-group">
+          <label for="notefield" class="col-sm-2 control-label">{$Think.lang.NOTE}</label>
+          <div class="col-sm-8">
+            <textarea class="form-control" name="note" rows="3" placeholder="{$Think.lang.NOTE_PLACEHOLDER}">{$Think.post.note}</textarea>
+          </div>
+        </div>
+        <notpresent name="Think.session.recaptcha_passed"><center><div class="g-recaptcha" data-size="100%" data-sitekey="{:C('RECAPTCHA_CLIENT_KEY')}" style="margin-bottom:15px;"></div></center></notpresent>
+        <div class="col-sm-8 col-sm-offset-2" style="padding:0px 0px">
+          <p>
+            <button id="check" type="submit" id="submitbutton" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-pencil"></span>&nbsp;{$Think.post.REGISTER_BUTTON}</button>
+          </p>
+        </div>
+      </form>
     </div>
-
-    <div class="container">
-      <div style="max-width:500px;margin-left:auto;margin-right:auto;">
-        <form action="{:U('register')}" method="POST" class="form-horizontal" style="margin:auto;margin-top:30px;" role="form">
-          <notempty name="errmsg">
-            <div class="row">
-              <div class="col-sm-8 col-sm-offset-2">
-                <div class="alert alert-danger" role="alert"><strong>{$errmsg}</strong></div>
-              </div>
-              <div class="col-sm-2"></div>
-            </div>
-          </notempty>
-
-          <div id="netidinputdiv" class="form-group">
-            <label for="netidfield" class="col-sm-2 control-label">SU Mail</label>
-            <div class="col-sm-8">
-              <div class="input-group">
-                <input id="netidfield" name="netid" type="text" class="form-control" maxlength="32" required="required" placeholder="NETID" value="{$Think.request.netid}">
-                <span class="input-group-addon">@syr.edu</span>
-              </div>
-            </div>
-          </div>
-          <div id="nameinputdiv" class="form-group">
-            <label for="namefield" class="col-sm-2 control-label">姓名</label>
-            <div class="col-sm-8">
-              <input id="namefield" name="name" type="text" class="form-control" maxlength="32" required="required" value="{$Think.post.name}">
-            </div>
-          </div>
-          <div id="firstnameinputdiv" class="form-group">
-            <label for="firstnamefield" class="col-sm-2 control-label">First N.</label>
-            <div class="col-sm-8">
-              <input id="firstnamefield" name="firstname" type="text" class="form-control" maxlength="32" required="required" placeholder="First Name" value="{$Think.post.firstname}">
-            </div>
-          </div>
-          <div id="lastnameinputdiv" class="form-group">
-            <label for="lastnamefield" class="col-sm-2 control-label">Last N.</label>
-            <div class="col-sm-8">
-              <input id="lastnamefield" name="lastname" type="text" class="form-control" maxlength="32" required="required" placeholder="Last Name" value="{$Think.post.lastname}">
-            </div>
-          </div>
-          <div id="mobileinputdiv" class="form-group">
-            <label for="mobilefield" class="col-sm-2 control-label">手机号</label>
-            <div class="col-sm-8">
-              <input id="mobilefield" name="mobile" type="text" class="form-control" maxlength="20" required="required" value="{$Think.post.mobile}">
-            </div>
-          </div>
-          <div id="songinputdiv" class="form-group">
-            <label for="songfield" class="col-sm-2 control-label">演唱歌曲</label>
-            <div class="col-sm-8">
-              <input id="songfield" name="song" type="text" class="form-control" maxlength="50" placeholder="我的太阳 - 帕瓦蒂洛" required="required" value="{$Think.post.song}">
-            </div>
-          </div>
-          <div id="noteinputdiv" class="form-group">
-            <label for="notefield" class="col-sm-2 control-label">备注</label>
-            <div class="col-sm-8">
-              <textarea class="form-control" name="note" rows="3" placeholder="如果有话想对SUCSSA说请写在这里（可选）">{$Think.post.note}</textarea>
-            </div>
-          </div>
-          <notpresent name="Think.session.recaptcha_passed"><center><div class="g-recaptcha" data-size="100%" data-sitekey="{:C('RECAPTCHA_CLIENT_KEY')}" style="margin-bottom:15px;"></div></center></notpresent>
-          <div class="col-sm-8 col-sm-offset-2" style="padding:0px 0px">
-            <p>
-              <button id="check" type="submit" id="submitbutton" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-pencil"></span>&nbsp;报名参赛</button>
-            </p>
-          </div>
-        </form>
-      </div>
-    </div>
-    <hr>
-    <footer style="text-align:center;">
-      <p>&copy;2016 雪城大学华人学生学者联合会</p>
-    </footer>
-  </body>
-</html>
+  </div>
+</block>
