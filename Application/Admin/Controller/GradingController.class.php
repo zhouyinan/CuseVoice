@@ -47,10 +47,39 @@ class GradingController extends Controller {
     $this->display();
   }
 
+  public function _before_judges_list(){
+    $this->check_login();
+  }
   public function judges_list(){
-    $GradersModel = D('Graders');
-    $this->assign('graders_list',$GradersModel->order('grader_id asc')->select());
+    $JudgesModel = D('Judges');
+    $this->assign('judges_list',$JudgesModel->order('judges_id asc')->select());
     $this->display();
+  }
+
+  public function _before_judge_add(){
+    $this->check_login();
+  }
+  public function judge_add(){
+    $JudgesModel = D('Judges');
+    if(empty($_GET['judges_id'])){
+      E('评委ID参数错误');
+    }
+    $data['judges_id'] = I('get.judges_id');
+    $JudgesModel->add($data);
+    $this->redirect('judges_list',null,0, 'Redirecting ...');
+  }
+
+  public function _before_judge_delete(){
+    $this->check_login();
+  }
+  public function judge_delete(){
+    $JudgesModel = D('Judges');
+    if(empty($_GET['judges_id'])){
+      E('评委ID参数错误');
+    }
+    $query['judges_id'] = I('get.judges_id');
+    $JudgesModel->where($query)->limit('1')->delete();
+    $this->redirect('judges_list',null,0, 'Redirecting ...');
   }
 
   private function is_login(){
