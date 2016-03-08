@@ -157,9 +157,14 @@ class GradingController extends Controller {
     return session('?grader');
   }
 
-  private function getGraderName(){
-    $graders = array('李运珂','夏伊璠','于蓝妮','张露心','张姗姗');
-    return $graders[session('grader') - 1];
+  private function getGraderName($grader_id = ''){
+    $grader_id = $grader_id?:session('grader');
+    if(F('GRADER-NAME-' . $grader_id)===false){
+      $GradersModel = D('Graders');
+      $query['grader_id'] = $grader_id;
+      F('GRADER-NAME-' . $grader_id,$GradersModel->where($query)->getField('grader_name'));
+    }
+    return F('GRADER-NAME-' . $grader_id);
   }
 
   private function check_grader_login(){
