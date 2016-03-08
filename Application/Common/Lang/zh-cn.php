@@ -11,4 +11,14 @@ return array(
   'NETID_EMPTY_MESSAGE' => '请输入您的雪城大学NETID',
   'NETID_FORMAT_ERROR_MESSAGE' => '您输入的雪城大学NETID格式错误',
   'LOGIN_BUTTON' => '登录',
+  'LOGOUT_BUTTON' => '登出',
+  'NAME' => '姓名',
+  'EMAIL' => '邮件地址',
+  'MOBILE' => '手机号',
+  'SONG' => '演唱歌曲',
+  'NOTE' => '备注',
+  'REGISTER_TIME' => '报名时间',
+  'STATUS' => '状态',
+  'ACCOMPANY_SUBMISSION_STATUS' => '伴奏提交状态',
+
 );
