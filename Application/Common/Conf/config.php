@@ -15,7 +15,7 @@ return array(
 
 	//设置密码
 	'ADMIN_PASSWORD' => '123456', //管理密码
-	'GRADER_PASSWORD' => '123456', //评委密码
+	'JUDGE_PASSWORD' => '123456', //评委密码
 
 	//在下方填写数据库设置
 	'DB_TYPE'   => 'mysql', // 数据库类型

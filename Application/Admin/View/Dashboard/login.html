@@ -1,6 +1,7 @@
 <extend name="./Application/Common/View/layout.html" />
 <block name="subtitle">{$Think.lang.ADMIN_LOGIN_TITLE}</block>
 <block name="body">
+  <script src="https://www.google.com/recaptcha/api.js?hl={$Think.lang.RECAPTCHA_LANG_CODE}"></script>
   <div class="container">
     <div style="max-width:500px;margin-left:auto;margin-right:auto;">
       <form method="POST" class="form-horizontal" style="margin:auto;margin-top:30px;" role="form">

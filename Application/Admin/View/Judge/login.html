@@ -39,12 +39,12 @@
               <div class="col-sm-2"></div>
             </div>
           </notempty>
-          <div id="graderinputdiv" class="form-group">
-            <label for="graderfield" class="col-sm-2 control-label">评委姓名</label>
+          <div id="judgeinputdiv" class="form-group">
+            <label for="judgefield" class="col-sm-2 control-label">评委姓名</label>
             <div class="col-sm-8">
-              <select class="form-control" name="grader" required="required">
-                <volist name="graders_list" id="grader">
-                <option value="{$grader.grader_id}">{$grader.grader_name}</option>
+              <select class="form-control" name="judge" required="required">
+                <volist name="judges_list" id="judge">
+                <option value="{$judge.judge_id}">{$judge.judge_name}</option>
                 </volist>
               </select>
             </div>
