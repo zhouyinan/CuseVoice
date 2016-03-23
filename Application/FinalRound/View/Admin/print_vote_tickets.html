@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>雪城好声音赛务平台</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://sucssa.pumpkin.name/favicon.ico" type="image/x-icon">
+    <style>.pb{}body{font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif !important;}</style>
+  </head>
+  <body>
+    <div class="container-fluid">
+
+        <foreach name="ticket_list" item="ticket" key="k">
+
+          <div class="col-xs-3" style="text-align:center; margin-top:0px;page-break-inside: avoid;">
+            <div class="thumbnail">
+              <h4>雪城好声音</h4>
+              <h5>现场观众投票</h5>
+              <img src="https://chart.googleapis.com/chart?cht=qr&chs=400x400&chld=L|1&chl={:urlencode('https://v.pumpkin.name/')}{$ticket}">
+              <p>观众ID：{$ticket}</p>
+              <p style="font-size:4px;">扫描上方二维码<br />或登录v.pumpkin.name<br />为参赛选手投票</p>
+            </div>
+          </div>
+        </foreach>
+    </div>
+  </body>
+</html>
