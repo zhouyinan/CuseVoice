@@ -5,4 +5,13 @@ class AudienceController extends Controller {
   public function index(){
 
   }
+
+  public function login(){
+    if(!empty($_GET['id'])){
+
+    }
+    else{
+      $this->display();
+    }
+  }
 }
