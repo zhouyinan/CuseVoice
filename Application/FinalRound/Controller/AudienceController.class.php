@@ -3,7 +3,14 @@ namespace FinalRound\Controller;
 use Think\Controller;
 class AudienceController extends Controller {
   public function index(){
-
+    switch($this->status()){
+      case 'current_program':
+        $this->current_program();
+        return;
+      default:
+        $this->display('index_off');
+        return;
+    }
   }
 
   public function login(){
@@ -15,13 +22,23 @@ class AudienceController extends Controller {
     }
   }
 
-  public function vote_status(){
+  public function get_status(){
     if(IS_AJAX){
-      echo $this->get_vote_status();
+      echo $this->status();
     }
     else{
       echo 'Unauthroized';
     }
+  }
+
+  private function current_program(){
+    $program = getCurrentProgram();
+    $this->assign('name',$program['name']);
+    foreach($program['cast'] as $k => $v){
+      $casts[] = get_cast_info($v);
+    }
+    $this->assign('casts',$casts);
+    $this->display('current_program');
   }
 
   public function vote(){
@@ -38,17 +55,8 @@ class AudienceController extends Controller {
     }
   }
 
-  private function get_vote_status(){
-  //  return 'end';
-    $status = F('audience_vote_status');
-    if($status == 'end'){
-      return 'end';
-    }
-    elseif($status == 'on'){
-      return 'on';
-    }
-    else{
-      return 'off';
-    }
+  private function status(){
+    return 'current_program';
+    return F('FinalRoundAudienceStatus')?:'off';
   }
 }
