@@ -1,5 +1,5 @@
 <?php
-namespace Common\Model;
+namespace FinalRound\Model;
 use Think\Model;
 class FinalRoundJudgesModel extends Model{
 	protected $fields = array('judge_id','judge_name');

@@ -1,0 +1,50 @@
+<extend name="./Application/Common/View/layout.html" />
+<block name="subtitle">{$Think.lang.ADMIN_DASHBOARD_TITLE}&nbsp;<a href="{:U('logout')}" role="button" class="btn btn-default btn-"><span class="glyphicon glyphicon-log-out"></span>&nbsp;登出</a></block>
+<block name="body">
+  <div class="container">
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="#">比赛进度</a></li>
+      <li role="presentation"><a href="{:U('grade')}">比赛排名</a></li>
+    </ul>
+    <h3>已确定节目</h3>
+    <table class="table table-striped">
+      <thead>
+        <th>#</th>
+        <th>进度名称</th>
+        <th>进度描述</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <volist name="progress_list" id="progress">
+          <tr>
+            <th>{$i}</td>
+            <td>{$progress.name}</td>
+            <td>{$progress.desc}</td>
+            <td><a href="{:U('set_current_progress',array('id'=>$i))}" class="btn btn-xs btn-default">设为当前进度</a></td>
+          </tr>
+        </volist>
+      </tbody>
+    </table>
+    <h3>决赛选手设置</h3>
+    <table class="table table-striped">
+      <thead>
+        <th>#</th>
+        <th>选手姓名</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <foreach name="contestants_list" item="contestant">
+          <tr>
+            <th>{$i}</td>
+            <td>{$contestant.name}</td>
+            <td><a href="{:U('set_round2_contestant',array('contestant'=>$contestant['name']))}" class="btn btn-xs btn-default">设为当前上场选手</a></td>
+          </tr>
+        </foreach>
+      </tbody>
+    </table>
+    <h3>投票相关</h3>
+      <p><a href="{:U('set_vote_state?status=off')}">投票准备</a></p>
+      <p><a href="{:U('set_vote_state?status=on')}">投票开始</a></p>
+      <p><a href="{:U('set_vote_state?status=end')}">投票结束</a></p>
+  </div>
+</block>

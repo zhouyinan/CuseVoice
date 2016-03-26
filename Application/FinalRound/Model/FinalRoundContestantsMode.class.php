@@ -1,5 +1,5 @@
 <?php
-namespace Common\Model;
+namespace FinalRound\Model;
 use Think\Model;
 class FinalRoundContestantsModel extends Model{
 	protected $fields = array('contestant_id','name','firstname','lastname');
