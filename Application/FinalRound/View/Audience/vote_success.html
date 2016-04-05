@@ -1,0 +1,22 @@
+<extend name="./Application/FinalRound/View/Audience/layout.html" />
+<block name="body">
+  <div class="weui_msg">
+    <div class="weui_icon_area"><i class="weui_icon_success weui_icon_msg"></i></div>
+    <div class="weui_text_area">
+      <h2 class="weui_msg_title">投票成功</h2>
+      <p class="weui_msg_desc">系统已成功记录您的投票</p>
+    </div>
+    <include file="./Application/FinalRound/View/Audience/about.html" />
+  </div>
+  <script>
+    function check_status(){
+      $.get("{:U('get_status')}",function(data,status){
+        if(data!="vote_on"){
+          location.reload();
+        }
+      });
+      return;
+    }
+    setInterval(function(){check_status();},5000);
+  </script>
+</block>

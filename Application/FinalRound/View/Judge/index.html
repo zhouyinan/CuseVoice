@@ -1,0 +1,29 @@
+<extend name="./Application/FinalRound/View/Audience/layout.html" />
+<block name="body">
+  <div style="padding:2em 0;">
+    <h1 style="text-align:center;font-size:34px;color:#3cc51f;font-weight:400;margin:0 15%;">雪城好声音</h1>
+    <p style="text-align:center;color:#888;font-size:14px">当前登录评委：{$Think.session.judge}</p>
+  </div>
+  <div class="weui_panel weui_panel_access">
+    <form action="{:U('submitScore')}" method="POST">
+      <volist name="tasks" id="task">
+      <div class="weui_panel_bd">
+        <div class="weui_cell">
+          <div class="weui_cell_bd weui_cell_primary">
+            <p>{$task.contestant}</p>
+            <input type="hidden" name="grade[{$i}][name]" value="{$task.contestant}">
+            <input type="hidden" name="grade[{$i}][round]" value="{$task.round}">
+          </div>
+          <div class="weui_cell_hd"><label class="weui_label">分数</label></div>
+          <div class="weui_cell_bd weui_cell_primary">
+            <input class="weui_input" type="number" name="grade[{$i}][score]" pattern="[0-9]*" maxlength="3" placeholder="1-100" required="required">
+          </div>
+        </div>
+      </div>
+      </volist>
+      <div class="weui_btn_area">
+        <button class="weui_btn weui_btn_primary" type="submit" id="showTooltips">提交上列所有打分</button>
+      </div>
+  </form>
+  </div>
+</block>
