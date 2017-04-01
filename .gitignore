@@ -1,4 +1,3 @@
-# ignore runtime folder
-Runtime/
-# ignore configuration file on development machine
-Application/Common/Conf/local.php
+.idea
+composer.lock
+*.log

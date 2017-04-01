@@ -1,9 +1,8 @@
-<IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresByType text/html "access plus 30 minute"
-  ExpiresByType image/jpeg "access plus 1 day"
-  ExpiresByType image/png "access plus 1 day"
-  ExpiresByType text/css "access plus 1 day"
-  ExpiresByType text/javascript "access plus 1 day"
-  ExpiresByType application/x-javascript "access plus 1 day"
+<IfModule mod_rewrite.c>
+  Options +FollowSymlinks -Multiviews
+  RewriteEngine On
+
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
 </IfModule>
